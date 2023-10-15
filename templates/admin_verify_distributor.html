@@ -1,0 +1,96 @@
+{% include 'admin_header.html' %}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Welcome to Regna</h1>
+      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <a href="#about" class="btn-get-started">Get Started</a>
+    </div>
+  </section><!-- End Hero Section -->
+  
+  <main id="main">
+  
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <style>
+        #about .a.hover{
+          background-color: green;
+        }
+      </style>
+      <div class="container" data-aos="fade-up">
+        <div class="row about-container">
+  
+          <div class="col-lg-12 content order-lg-1 order-2 " style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            <h2 class="title">Verify Distributor</h2>
+            <!-- <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p> -->
+            <table class="table table-striped">
+            
+                <tr>
+                    <th>Sl no</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Place</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+              
+                </tr>
+                {% for row in data['res'] %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{row['fname']}}</td>
+                    <td>{{row['lname']}}</td>
+                    <td>{{row['place']}}</td>
+                    <td>{{row['phone']}}</td>
+                    <td>{{row['email']}}</td>
+                    
+            
+                    <td><a href="?action=accept&lid={{row['login_id']}}">Accept</a></td>
+                    <td><a href="?action=reject&lid={{row['login_id']}}">Reject</a></td>
+                </tr>
+            
+                {% endfor %}
+             
+  </table>
+          </div>
+  
+          
+        </div>
+  
+      </div>
+    </section><!-- End About Section -->
+  </main><!-- End #main -->
+
+<!-- <table>
+    <tr>
+        <th>Sl no</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Place</th>
+        <th>Phone</th>
+        <th>Email</th>
+  
+    </tr>
+    {% for row in data['res'] %}
+    <tr>
+        <td>{{row['fname']}}</td>
+        <td>{{row['lname']}}</td>
+        <td>{{row['place']}}</td>
+        <td>{{row['phone']}}</td>
+        <td>{{row['email']}}</td>
+        
+
+        <td><a href="?action=accept&lid={{row['login_id']}}">Accept</a></td>
+        <td><a href="?action=reject&lid={{row['login_id']}}">Reject</a></td>
+    </tr>
+
+    {% endfor %}
+</table> -->
+
+
+{% include 'footer.html' %}
